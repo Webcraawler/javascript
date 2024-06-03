@@ -18,3 +18,13 @@
 // === this also compare the datatype so false if diff datatypes
 console.log("2" == 2)
 console.log("2" === 2);
+
+//Non - primitive(refernce type) --array,objects,functions
+const hero = ["asnddf",1,"dvsd",true,null]
+console.log(hero[3]);
+
+//objects = {}
+let myObj = {
+    name:"raju",
+    age:18
+}
