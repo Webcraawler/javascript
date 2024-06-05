@@ -9,7 +9,7 @@
 //key is by default string in js whereas value we can give any datatype
 
 let user = {
-    name: "sdnfs",
+    name: "francis",
     age: 123,
     isLoggedIn: true,
     data: [43,23,54,2]
@@ -49,3 +49,19 @@ console.log(typeof user1[sym])
 // console.log(user1)
 
 //-------
+
+
+//-------objects with functions and 'this'
+
+user.hello = function()
+{
+    console.log("hello js user")
+}
+
+console.log(user.hello())
+
+user.hello2 = function(){
+    console.log('hello js user, ${this.name}')
+}
+
+console.log(user.hello2())
