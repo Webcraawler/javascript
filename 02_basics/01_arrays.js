@@ -41,3 +41,7 @@ console.log("org arr after slice- ",arr)
 
 console.log(arr.splice(0,3))
 console.log("org arr after slice- ",arr)
+
+//------join-
+//convert the array to string
+console.log(arr.join())
