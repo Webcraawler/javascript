@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    
+</body>
+
+<script>
+    //creating element 
+    const div = document.createElement('div')
+    console.log(div)
+    div.className = 'main'
+    div.id = Math.round(Math.random()*10+1)
+    div.setAttribute("title","generatedTitle")
+    div.style.backgroundColor = "green"
+    div.style.padding = '15px'
+
+    const h1 = document.createElement('h1')
+    // h1.innerText = "Creating new element"
+    const addtext = document.createTextNode("creating new element")
+    h1.style.color = "black"
+    h1.style.backgroundColor = "red"
+    h1.appendChild(addtext)
+    div.appendChild(h1)
+    // console.log(div.children[0])
+    document.body.appendChild(div)
+//---------------------------
+    // this is how it is made -- appending ,adding attributes,class ,id,styling
+    //creating more element and appending it to the other
+
+    //this is the format we can wrap this in function ,pass para how many element to create what color 
+//----------------------------
+
+//using function to create numbers of elements with usergiven inputs
+    const div1 = document.createElement('div')
+    console.log(div1)
+    div1.className = 'main1'
+    div1.id = Math.round(Math.random()*10+1)
+    div1.setAttribute("title","generatedTitle")
+    div1.style.backgroundColor = "white"
+    div1.style.padding = '15px'
+    function createElement(n,color,bcg)
+    {
+
+    for (let i = 0; i < n; i++) {
+        const h1 = document.createElement('p')
+    // h1.innerText = "Creating new element"
+        const inputt = prompt("enter the content of heading")
+        const addtext = document.createTextNode(inputt)
+        h1.appendChild(addtext)
+        h1.style.color = color
+        h1.style.backgroundColor = bcg
+        div1.appendChild(h1)
+    }
+    // console.log(div.children[0])
+    document.body.appendChild(div1)
+    }
+
+    createElement(5,"cyan","purple")
+</script>
+</html>
