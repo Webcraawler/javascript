@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body style="background-color: #212121; color: #fff;">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">wednesday</div>
+        <div class="day">friday</div>
+    </div>
+</body>
+<script>
+    //parent and children
+    //----------------children----------------------------
+    const val = document.querySelector('.parent')
+    // console.log(val.children) //children of the class gives html collection of the inner html
+    // console.log(val.children[2].innerHTML)
+
+    //basic for loop can be operated on nodelist and htmlcollection
+    for (let i = 0; i < val.children.length; i++) {
+        // console.log(val.children[i].innerHTML)
+        val.children[i].style.color = "orange"
+    }
+
+    //without using .children accessing first and last child element
+    // console.log(val.firstElementChild.innerHTML)
+    // console.log(val.lastElementChild.innerHTML)
+
+    //console.log("Node: ",val.childNodes)// not 4 div but even the line breaks are also nodes
+
+
+
+    //------------------------parent------------------
+    const dayOne = document.querySelector('.day')
+    console.log(dayOne.innerHTML)
+    console.log(dayOne.nextElementSibling.innerHTML)
+    console.log(dayOne.parentElement.innerHTML)//accessing the parent through chuildren
+
+</script>
+
+</html>
