@@ -80,6 +80,7 @@ function displayMessage(message){
 }
 
 function endGame(){
+  lowOrHi.innerHTML = ''
   userInput.value = ''
   userInput.setAttribute('disabled','')//disabled is given in key value pair 
   p.classList.add('button')
@@ -95,8 +96,9 @@ function newGame(){
     randomNum = parseInt(Math.random()*100+1)
     numGuess = 1
     prevGuess = []
+    lowOrHi.innerHTML= ''
     guessSlot.innerHTML= ''
-    remaining.innerHTML = `${10-numGuess}`
+    remaining.innerHTML = `${10}`
     userInput.removeAttribute('disabled')
     startOver.removeChild(p)
 
