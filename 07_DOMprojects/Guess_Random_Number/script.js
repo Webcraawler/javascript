@@ -80,7 +80,7 @@ function displayMessage(message){
 }
 
 function endGame(){
-  lowOrHi.innerHTML = ''
+  // lowOrHi.innerHTML = ''
   userInput.value = ''
   userInput.setAttribute('disabled','')//disabled is given in key value pair 
   p.classList.add('button')
