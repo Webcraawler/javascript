@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Interval</title>
+</head>
+<body>
+    <h1>JavaScript Learning</h1>
+    <button class="start">START</button>
+    <button class="stop">STOP</button>
+</body>
+
+<script>
+    //setInterval - takes same parameter just instead of performing task after n secs it perform tasks repeatedly after n seconds
+
+    // const interval = setInterval(function(){
+    //     let date = new Date()
+    //     console.log("JavaScript ",date.toLocaleTimeString())
+    // },1000)
+
+    //setTimeout or setInterval also takes a 3rd argument which is the parameter for the function which is the first parameter of setTimeout
+    let interval;
+    document.querySelector('.start').addEventListener('click',function(e){
+
+        console.log("interval started")
+
+        interval = setInterval(function(str="JavaScript "){
+        let date = new Date()
+        console.log(str,date.toLocaleTimeString())
+        },1000,"python ")
+
+    },false)
+
+    document.querySelector('.stop').addEventListener('click',function(e){
+        clearInterval(interval)
+        console.log("interval cleared")
+    },false)
+</script>
+</html>
