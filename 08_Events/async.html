@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Calling</title>
+</head>
+<body>
+    <h1>Async Calling</h1>
+    <button class="stop">STOP</button>
+</body>
+
+<script>
+
+    //setTimeout() - takes 2 arguments one is the function what is needed to be done after n secs
+    // n secs -- timeout that you want
+
+    const func = function(){
+        let h = document.querySelector('h1')
+        h.innerHTML = "Heading changed after n secs"
+    }
+    const timeout = setTimeout(func,3000)
+
+
+    //clearTimeout() - is to prevent the function from happening after the timeout
+    // clearTimeout() - takes the setTimeout()  as the argument
+    //so store the setTimeout in some variable and pass it to clearTimeout()
+
+
+    //if we directly pass the variable in clearTimeout without any event then the setTimeout will never work 
+    // clearTimeout(timeout)
+
+
+    //so generally clearTimeout is used with some events
+    document.querySelector(".stop").addEventListener('click' , function(e){
+        clearTimeout(timeout)
+        console.log("Stoped : using clearTimeout")
+    },false)
+</script>
+</html>
