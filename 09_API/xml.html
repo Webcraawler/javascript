@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div>
+        <h1>0	UNSENT	Client has been created. open() not called yet.
+            1	OPENED	open() has been called.
+            2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+            3	LOADING	Downloading; responseText holds partial data.
+            4	DONE	The operation is complete.</h1>
+        <h1>Hello</h1>
+    </div>
+    <button class="display" style="background-color: #fff; color: #212121;">DISPLAY</button>
+</body>
+
+<script>
+    const requestUrl = "https://api.github.com/users/hiteshchoudhary"
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET',requestUrl)
+    xhr.send()//after send() only , the open()is called
+    // console.log(xhr.readyState) //when httprequest is called the state changes accn to the info in body to check that we do readyState
+
+    //to continuosly checking the ready state
+    let followers;
+    let imgg;
+    xhr.onreadystatechange = function()
+    {
+        console.log(xhr.readyState)
+        if(xhr.readyState === 4)
+        {
+            // console.log(typeof this.responseText)
+            const data = JSON.parse(this.responseText)// the data is generally string type we use this to convert it to object
+            // console.log( data)
+            followers = data.followers
+            imgg  = data.avatar_url
+            // console.log(data.followers) //the return is in the form of response
+            console.log()
+        }
+    }
+    const func = function(e)
+    {
+        e.preventDefault()
+        const div = document.createElement('div')
+        const immg = document.createElement('img')
+        immg.src = imgg
+        div.appendChild(immg)
+        const p = document.createElement('p')
+        p.innerHTML = `<p>FOLLOWERS: ${followers}</p>`
+        div.appendChild(p)
+        document.body.appendChild(div)
+    }
+    document.querySelector('.display').addEventListener('click',func,false)
+</script>
+</html>
