@@ -1,4 +1,5 @@
-const url = "https://2024-03-06.currency-api.pages.dev/v1/currencies/eur.json";
+// const url = "https://2024-03-06.currency-api.pages.dev/v1/currencies/eur.json";
+const url = "https://v6.exchangerate-api.com/v6/527a57513be8bfebf635e795/latest"
 
 // async function covert(){
 //     const response = await fetch(url)
@@ -62,16 +63,26 @@ button.addEventListener('click',async function(e){
     // console.log(from)
   
         else{
-            const to = dropdown[1].value.toLowerCase()
-        console.log(to)
+            const to = dropdown[1].value
+            console.log(to)
+            const from = dropdown[0].value
+            console.log(from)
 
-        let response = await fetch(url)
-        let data = await response.json()
-        // console.log(data.eur[to])
-        let convertedVal = (currVal*data.eur[to]).toFixed(2)
-        console.log(convertedVal)
-        const msgbox = document.querySelector('.msg')
-        msgbox.innerHTML = `${currVal}EUR = ${convertedVal}${to.toUpperCase()}`
+            const newUrl = `${url}/${from}`
+            let response = await fetch(newUrl)
+            let data = await response.json()
+
+            // console.log(data.conversion_rates)
+            // console.log(data)
+            // console.log(data.conversion_rates[to])//this will give the equivalent value of the currency in the currency we want
+            let convertedVal = (currVal*data.conversion_rates[to]).toFixed(2)
+            console.log(convertedVal)
+            const msgbox = document.querySelector('.msg')
+            msgbox.innerHTML = "getting exchange rate"
+
+            setTimeout(()=>{
+                msgbox.innerHTML = `${currVal}${from} = ${convertedVal}${to.toUpperCase()}`
+            },1000)
 
         }
 
