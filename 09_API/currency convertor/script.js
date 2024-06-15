@@ -78,7 +78,7 @@ button.addEventListener('click',async function(e){
             let convertedVal = (currVal*data.conversion_rates[to]).toFixed(2)
             console.log(convertedVal)
             const msgbox = document.querySelector('.msg')
-            msgbox.innerHTML = "getting exchange rate"
+            msgbox.innerHTML = "getting exchange rate........"
 
             setTimeout(()=>{
                 msgbox.innerHTML = `${currVal}${from} = ${convertedVal}${to.toUpperCase()}`
