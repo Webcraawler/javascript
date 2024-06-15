@@ -1,36 +1,49 @@
 const url = "https://cat-fact.herokuapp.com/facts"
 
-async function apii(){
-    try {
-        const response = await fetch(url)
-        // console.log(response)
-        const data = await response.json()
-        console.log(data)
-        // console.log(data[0].text)
-        // document.querySelector('.click').addEventListener('click',()=>{
-        //             data.forEach(element => {
-        //                 setTimeout(()=>{
-        //                     const p = document.createElement('p')
-        //                     p.innerHTML = element.text
-        //                     document.body.appendChild(p)
-        //                 },3000)
-        //             });
-        // })
+// async function apii(){
+//     try {
+//         const response = await fetch(url)
+//         // console.log(response)
+//         console.log(response.status)
+//         const data = await response.json()
+//         console.log(data)
+//         console.log(data)
 
+//         document.querySelector('.click').addEventListener('click', () => {
 
-        document.querySelector('.click').addEventListener('click', async () => {
-            for (let i = 0; i < data.length; i++) {
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                const p = document.createElement('p')
-                p.innerHTML = data[i].text
-                document.body.appendChild(p)
-            }
-        })
+//                 const p = document.createElement('p')
+//                 p.innerHTML = data[1].text
+//                 document.body.appendChild(p)
+            
+//         })
         
-    } 
-    catch (error) {
-        console.log(error)
-    }
-}
+//     } 
+//     catch (error) {
+//         console.log(error)
+//     }
+// }
 
-apii()
+
+//---------using chaining------------
+
+fetch(url)
+.then(function(response){
+    console.log(response)
+    if(response.status===200)console.log("successful")
+    return response.json()
+})
+.then(function(data){
+    const p = document.createElement('p')
+        document.querySelector('.click').addEventListener('click',function(){
+        p.innerHTML = data[3].text
+        document.body.appendChild(p)
+    })
+    console.log(data)
+    
+})
+.catch(function(error){
+    console.log(error)
+})
+.finally(()=> console.log("either resovled or rejected "))
+
+// apii()
